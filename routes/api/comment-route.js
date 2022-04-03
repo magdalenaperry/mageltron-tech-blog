@@ -60,7 +60,6 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-
 // Update category by ID
 router.put('/:id', async (req, res) => {
   try {
@@ -71,7 +70,7 @@ router.put('/:id', async (req, res) => {
     });
     if (!commentData[0]) {
       res.status(404).json({
-        message: 'No category found with this id.'
+        message: 'No comment found with this id.'
       })
       return;
     }
@@ -91,7 +90,7 @@ router.delete('/:id', async (req, res) => {
     })
     if (!commentData) {
       res.status(404).json({
-        message: 'No Category found with this id.'
+        message: 'No comment found with this id.'
       });
       return;
     }

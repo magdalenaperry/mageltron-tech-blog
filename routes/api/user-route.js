@@ -12,7 +12,7 @@ router.get('/', async (req, res) => {
     });
     if (!userData) {
       res.status(404).json({
-        message: 'No comments found.'
+        message: 'No user found.'
       });
       return;
     }
