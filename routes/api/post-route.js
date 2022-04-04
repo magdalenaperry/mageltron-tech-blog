@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { Post, Comment, User } = require('../../models');
 
-
+// Get all Posts
 router.get('/', async (req, res) => {
   try {
     const postData = await Post.findAll({
@@ -57,7 +57,7 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-// Update category by ID
+// Update Post by ID
 router.put('/:id', async (req, res) => {
   try {
     const postData = await Post.update(req.body, {
@@ -67,7 +67,7 @@ router.put('/:id', async (req, res) => {
     });
     if (!postData[0]) {
       res.status(404).json({
-        message: 'No category found with this id.'
+        message: 'No post found with this id.'
       })
       return;
     }
@@ -77,7 +77,7 @@ router.put('/:id', async (req, res) => {
   }
 });
 
-// Delete category by ID 
+// Delete Post by ID 
 router.delete('/:id', async (req, res) => {
   try {
     const postData = await Post.destroy({
@@ -87,7 +87,7 @@ router.delete('/:id', async (req, res) => {
     })
     if (!postData) {
       res.status(404).json({
-        message: 'No Category found with this id.'
+        message: 'No post found with this id.'
       });
       return;
     }
