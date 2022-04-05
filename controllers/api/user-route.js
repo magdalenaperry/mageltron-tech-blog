@@ -8,7 +8,7 @@ const {
 router.get('/', async (req, res) => {
   try {
     const userData = await User.findAll({
-      // include: [ { model: User }];
+      // include: [ { model: Post }];
     });
     if (!userData) {
       res.status(404).json({
@@ -34,11 +34,14 @@ router.post('/', async (req, res) => {
       });
       return;
     }
-    res.status(200).json(userData);
+    // res.status(200).json(userData);
+    res.render('login', userData)
   } catch (err) {
     res.status(400).json(err);
   }
 });
+
+
 
 // Get User by ID
 router.get('/:id', async (req, res) => {

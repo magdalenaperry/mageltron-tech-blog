@@ -3,24 +3,22 @@ const { Comment, Post, User } = require('../../models');
 
 // http://localhost:3001/api/comments/
 
-
 // Get all comments 
+
 router.get('/', async (req, res) => {
-try { 
-const commentData = await Comment.findAll({
-  // include: [ { model: User }];
-});
-if (!commentData) {
-  res.status(404).json({
-    message: 'No comments found.'
+  const commentData = await Comment.findAll().catch((err) => {
+    res.json(err);
   });
-  return;
-}
-res.status(200).json(commentData);
-} catch (err) {
-  res.status(500).json(err); 
-}
+  const comments = commentData.map((comment) => comment.get({
+    plain: true
+  }));
+  res.render('all', {
+    comments
+  });
 });
+
+// 
+
 
 // Create new Comment
 router.post('/', async (req, res) => {

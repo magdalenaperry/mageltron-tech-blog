@@ -3,15 +3,20 @@ const Post = require('./post');
 const User = require('./user');
 
 // User.hasMany(Post, {
-//   foreignKey: 'user_id',
+//   foreignKey: 'user_id', 
 // });
+
+// ^had user id as foreign key, created error
+
+
+
 
 // User.hasMany(Comment, {
 //   foreignKey: 'user_id',
 // })
 
 // Post.belongsTo(User, {
-//   foreignKey: 'user_id',
+//   foreignKey: 'post_id',
 // });
 
 // Post.hasMany(Comment, {

@@ -1,7 +1,8 @@
-const { Post } = require('../models');
+const {
+  Post
+} = require('../models');
 
-const postData =
-[{
+const postData = [{
     title: 'Great Post',
     post_body: 'This is a very short and informative post about coding',
     user_id: 1
@@ -12,8 +13,8 @@ const postData =
     user_id: 3
   }, {
     title: 'Ok Post',
-      post_body: 'This is a very short and sweet  post about coding',
-      user_id: 2
+    post_body: 'This is a very short and sweet  post about coding',
+    user_id: 2
   }
 ];
 

@@ -1,0 +1,42 @@
+<div class="menu-container">
+{{!-- form to submit post --}}
+<div class="card border-dark mb-3">
+    <h4 class="card-header">Create a New Post</h4>
+  <div class="card-body">
+      <div>
+      
+        <form class="add-post">
+          <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input type="text" class="form-control" id="post_title" placeholder="...">
+          </div>
+          <div class="mb-3">
+            <label for="post_body" class="form-label">Post</label>
+            <textarea class="form-control" id="post_body" placeholder="..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+  </div>
+</div>
+{{!-- renders all posts --}}
+  <div class="card-header col-md-12">
+    <h2>
+      View all POSTS:
+    </h2>
+  </div>
+  {{#each posts}}
+  <a href="/api/posts/{{id}}">
+    <div class="card text-white bg-primary mb-3">
+      <div class="card-header">{{id}}</div>
+      <div class="card-body">
+        <h4 class="card-title">{{title}}</h4>
+        <p class="card-text">{{post_body}}
+        </p>
+      </div>
+    </div>
+  </a>
+  {{/each}}
+  
+{{!-- links to script that posts that links to newpost segment in controllers/post-route --}}
+  <script src="/js/add-post.js"></script>
