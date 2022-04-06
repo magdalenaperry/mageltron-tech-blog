@@ -4,15 +4,53 @@
       Post:
     </h2>
   </div>
-  {{!-- <a href="/api/posts/{{id}}"> --}}
+  <div class="card text-white bg-primary mb-3">
+    <div class="card-header">{{user.username}}</div>
+    <div class="card-body">
+      <h4 class="card-title">{{title}}</h4>
+      <p class="card-text">{{post_body}}</p>
+    </div>
+  </div>
+
+  {{#each comments}}
+  <div class="menu-container">
+    <div class="card-header col-md-12">
+      <h2>
+        Comments
+      </h2>
+    </div>
     <div class="card text-white bg-primary mb-3">
-      <div class="card-header">{{id}}</div>
       <div class="card-body">
-        <h4 class="card-title">{{title}}</h4>
-        <p class="card-text">{{post_body}}</p>
-        </p>User ID: {{user_id}}</p>
+        <h4 class="card-title"></h4>
+
+        <p class="card-text">{{comment_body}}</p>
+        <div class="card-header">{{user.username}}</div>
       </div>
     </div>
-    {{!--
-  </a> --}}
+    {{/each}}
+
+  </div>
+
+
+
+
+
+
+  <div class="card border-dark mb-3">
+    <h4 class="card-header">Comment</h4>
+    <div class="card-body">
+      <div>
+        <form class="add-comment">
+          <div class="mb-3">
+            <label for="comment_body" class="form-label"></label>
+            <textarea class="form-control" id="comment_body" placeholder="...be nice"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
 </div>
+
+{{!-- links to script that posts that links to newpost segment in controllers/post-route --}}
+<script src="/js/add-comment.js"></script>

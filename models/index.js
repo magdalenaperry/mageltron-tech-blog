@@ -2,34 +2,31 @@ const Comment = require('./comment');
 const Post = require('./post'); 
 const User = require('./user');
 
-// User.hasMany(Post, {
-//   foreignKey: 'user_id', 
-// });
+User.hasMany(Post, {
+  foreignKey: 'user_id', 
+  onDelete: 'CASCADE'
+});
 
-// ^had user id as foreign key, created error
+Post.belongsTo(User, {
+  foreignKey: 'user_id', 
+  onDelete: 'CASCADE'
+});
 
+Post.hasMany(Comment, {
+  foreignKey: 'post_id',
+  onDelete: 'CASCADE'
+})
 
+Comment.belongsTo(Post, {
+  foreignKey: 'post_id', 
+  onDelete: 'CASCADE'
+});
 
+Comment.belongsTo(User, {
+  foreignKey: 'user_id',
+  onDelete: 'CASCADE'
+});
 
-// User.hasMany(Comment, {
-//   foreignKey: 'user_id',
-// })
-
-// Post.belongsTo(User, {
-//   foreignKey: 'post_id',
-// });
-
-// Post.hasMany(Comment, {
-//   foreignKey: 'post_id',
-// })
-
-// Comment.belongsTo(User, {
-//   foreignKey: 'user_id',
-// });
-
-// Comment.belongsTo(Post, {
-//   foreignKey: 'post_id', 
-// });
 
 
 

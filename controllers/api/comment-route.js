@@ -6,7 +6,9 @@ const { Comment, Post, User } = require('../../models');
 // Get all comments 
 
 router.get('/', async (req, res) => {
-  const commentData = await Comment.findAll().catch((err) => {
+  const commentData = await Comment.findAll(
+    {include: [Post] }
+  ).catch((err) => {
     res.json(err);
   });
   const comments = commentData.map((comment) => comment.get({
@@ -21,7 +23,7 @@ router.get('/', async (req, res) => {
 
 
 // Create new Comment
-router.post('/', async (req, res) => {
+router.post('/newcomment', async (req, res) => {
   try {
     const commentData = await Comment.create(req.body);
     if (!commentData) {
@@ -41,9 +43,9 @@ router.get('/:id', async (req, res) => {
   try {
     // finds by the primary key
     const commentData = await Comment.findByPk(req.params.id, {
-      // include: [{
-      //   model: Product
-      // }]
+      include: [{
+        model: Post
+      }]
     });
     if (!commentData) {
       res.status(404).json({

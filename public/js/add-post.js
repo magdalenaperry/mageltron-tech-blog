@@ -14,7 +14,7 @@ async function newFormHandler(event) {
   });
   if (response.ok) {
     console.log(response)
-    document.location.replace('/api/posts');
+    document.location.replace('/posts');
   } else {
     alert('Failed to add post');
   }

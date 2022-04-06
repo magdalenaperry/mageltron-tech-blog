@@ -26,12 +26,15 @@
     </h2>
   </div>
   {{#each posts}}
-  <a href="/api/posts/{{id}}">
+  <a href="/posts/{{id}}">
     <div class="card text-white bg-primary mb-3">
-      <div class="card-header">{{id}}</div>
+      <div class="card-header">{{user.username}}</div>
       <div class="card-body">
         <h4 class="card-title">{{title}}</h4>
         <p class="card-text">{{post_body}}
+        <p class="card-text">{{createdAt}}</p>
+          
+          
         </p>
       </div>
     </div>
