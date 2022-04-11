@@ -28,7 +28,7 @@
   {{#each posts}}
   <a href="/posts/{{id}}">
     <div class="card text-white bg-primary mb-3">
-      <div class="card-header">{{user.username}}</div>
+      {{!-- <div class="card-header">{{user.username}}</div> --}}
       <div class="card-body">
         <h4 class="card-title">{{title}}</h4>
         <p class="card-text">{{post_body}}
@@ -42,4 +42,7 @@
   {{/each}}
 
   {{!-- links to script that posts that links to newpost segment in controllers/post-route --}}
+  {{#if loggedIn}}
   <script src="/js/add-post.js"></script>
+  {{/if}}
+  

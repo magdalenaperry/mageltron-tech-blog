@@ -5,20 +5,21 @@ const { Post, Comment, User } = require('../../models');
 // http://localhost:3001/api/posts/newpost
 // linked to public/js/add-post.js and post.handlebars
 // SUCCESSFUL
-router.post('/newpost', async (req, res) => {
-  try {
-    const postData = await Post.create(req.body);
-    if (!postData) {
-      res.status(404).json({
-        message: 'Post was not created.'
-      });
-      return;
-    }
-    res.status(200).json(postData);
-  } catch (err) {
-    res.status(400).json(err);
-  }
-});
+
+// router.post('/newpost', async (req, res) => {
+//   try {
+//     const postData = await Post.create(req.body);
+//     if (!postData) {
+//       res.status(404).json({
+//         message: 'Post was not created.'
+//       });
+//       return;
+//     }
+//     res.status(200).json(postData);
+//   } catch (err) {
+//     res.status(400).json(err);
+//   }
+// });
 
 
 // // Update Post by ID
