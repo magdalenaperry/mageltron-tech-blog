@@ -8,7 +8,8 @@ const {
 const serialize = require('../utils/serialize');
 const withAuth = require('../utils/auth');
 
-// homepage views all posts, no comments visible
+
+// HOMEPAGE VIEWS POSTS, NO COMMENTS! NO USER NAMES!
 router.get('/', async (req, res) => {
    const postData = await Post.findAll({
        include: [User]
@@ -17,10 +18,8 @@ router.get('/', async (req, res) => {
    ).catch((err) => {
      res.json(err);
    });
-   const posts = postData.map((post) => post.get({
-     plain: true
-   }));
-   console.log(posts)
+   const posts = serialize(postData);
+  //  console.log(posts)
    res.render('homepage', {
      loggedIn: req.session.loggedIn,
      posts
@@ -40,7 +39,7 @@ router.get('/posts', withAuth, async (req, res) => {
 
   const posts = serialize(postData);
 
-  console.log(posts)
+  // console.log(posts)
   res.render('post', { 
     // loggedIn: req.session.loggedIn,
     posts
@@ -113,7 +112,7 @@ router.post('/newcomment', async (req, res) => {
 // login page sends to api/users/login
 router.get('/login', async (req, res) => {
   try {
-    console.log(req.session.loggedIn);
+    // console.log(req.session.loggedIn);
     if (req.session.loggedIn) {
       res.redirect('/');
       return;
