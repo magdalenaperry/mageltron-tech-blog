@@ -1,10 +1,14 @@
 <div class="menu-container">
-{{!-- form to submit post --}}
-<div class="card border-dark mb-3">
+  {{!-- form to submit post --}}
+
+  <button type="submit" class="btn btn-primary my-5 create-post">Create Post</button>
+
+
+  <div id="create-post" class="card border-dark mb-3">
     <h4 class="card-header">Create a New Post</h4>
-  <div class="card-body">
+    <div class="card-body">
       <div>
-      
+
         <form class="add-post">
           <div class="mb-3">
             <label for="title" class="form-label">Title</label>
@@ -16,10 +20,12 @@
           </div>
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>
+
       </div>
+    </div>
   </div>
-</div>
-{{!-- renders all posts --}}
+
+  {{!-- renders all posts --}}
   <div class="card-header col-md-12">
     <h2>
       View all POSTS:
@@ -33,13 +39,13 @@
         <h4 class="card-title">{{title}}</h4>
         <p class="card-text">{{post_body}}
         <p class="card-text">{{createdAt}}</p>
-          
-          
+
+
         </p>
       </div>
     </div>
   </a>
   {{/each}}
-  
-{{!-- links to script that posts that links to newpost segment in controllers/post-route --}}
+
+  {{!-- links to script that posts that links to newpost segment in controllers/post-route --}}
   <script src="/js/add-post.js"></script>

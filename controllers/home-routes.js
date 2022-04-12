@@ -128,10 +128,16 @@ router.get('/login', async (req, res) => {
 
 // create new post
 router.post('/newpost', async (req, res) => {
+  if(!req.session.loggedIn){
+    res.status(403).json({
+      message: 'Login to create a post'
+    })
+  }
   try {
-    const postData = await Post.create(req.body)
-    
+    const postData = await Post.create({...req.body, user_id:req.session.userId} )
+
     console.log(req.session.username);
+    console.log(req.session);
 
     if (!postData) {
       res.status(404).json({

@@ -1,1 +1,29 @@
-hello i am HERE
+
+<div class="card-header col-md-12">
+  <h2>
+    View all your Posts
+  </h2>
+</div>
+
+{{#each posts}}
+<a href="/posts/{{id}}">
+  <div class="card text-white bg-primary mb-3">
+    {{!-- <div class="card-header">{{user.username}}</div> --}}
+    <div class="card-body">
+{{user.username}}
+      <h4 class="card-title">{{title}}</h4>
+      <p class="card-text">{{post_body}}
+      <p class="card-text">{{createdAt}}</p>
+
+
+
+      </p>
+    </div>
+  </div>
+</a>
+{{/each}}
+
+{{!-- links to script that posts that links to newpost segment in controllers/post-route --}}
+{{#if loggedIn}}
+<script src="/js/add-post.js"></script>
+{{/if}}

@@ -5,7 +5,7 @@
     </h2>
   </div>
   <div class="card text-white bg-primary mb-3">
-    <div class="card-header">{{user.username}}</div>
+    <div class="card-header text-info">{{user.username}}</div>
     <div class="card-body">
       <h4 class="card-title">{{title}}</h4>
       <p class="card-text">{{post_body}}</p>
@@ -25,7 +25,13 @@
         <h4 class="card-title"></h4>
 
         <p class="card-text">{{comment_body}}</p>
-        <div class="card-header">{{user.username}}</div>
+        <div class="card-text text-info">{{user.username}}</div>
+        <p>{{createdAt}}</p>
+
+        <a id="update-comment" type="submit" class="btn btn-link text-lowercase text-decoration-none">Update</a>
+
+        <a id="delete-comment" type="submit" class="btn btn-link text-lowercase text-decoration-none">Delete</a>
+
       </div>
     </div>
     {{/each}}
@@ -46,7 +52,7 @@
             <label for="comment_body" class="form-label"></label>
             <textarea class="form-control" id="comment_body" placeholder="...be nice"></textarea>
           </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="submit" href="" class="btn btn-primary">Submit</button>
         </form>
       </div>
     </div>
@@ -55,3 +61,4 @@
 
 {{!-- links to script that posts that links to newpost segment in controllers/post-route --}}
 <script src="/js/add-comment.js"></script>
+<script src="/js/up-del-comment.js"></script>
