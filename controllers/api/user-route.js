@@ -47,9 +47,11 @@ const serialize = require('../../utils/serialize');
 router.post('/signup', async (req, res) => {
   try {
     const userData = await User.create(req.body);
+    const serializedUserData = serialize(userData);
 
     req.session.save(() => {
-      req.session.user_id = userData.id;
+      req.session.userId = serializedUserData.id;
+      req.session.username = serializedUserData.username;
       req.session.loggedIn = true;
 
       res.status(200).json(userData);
@@ -100,12 +102,15 @@ router.post('/login', async (req, res) => {
         });
       return;
     }
-    var serializeData = serialize(userData);
-    console.log(serializeData);
+    var serializedUserData = serialize(userData);
+    console.log(serializedUserData);
     req.session.save(() => {
       req.session.loggedIn = true;
-      req.session.user_id = serializeData.id;
+      req.session.userId = serializedUserData.id;
+      req.session.username = serializedUserData.username;
+      req.session.email = serializedUserData.email;
 
+      console.log(req.session.username);
       res
         .status(200)
         .json({ user: userData, message: 'You are now logged in!'})
