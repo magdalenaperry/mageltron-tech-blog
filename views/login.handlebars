@@ -1,59 +1,33 @@
-{{!-- Login:
-`
-<form>
-  <div class="row mb-3">
-    <label for="inputEmail3" class="col-sm-2 col-form-label">username</label>
-    <div class="col-sm-10">
-      <input type="email" class="form-control" id="inputEmail3">
-    </div>
-  </div>
-  <div class="row mb-3">
-    <label for="inputPassword3" class="col-sm-2 col-form-label">password</label>
-    <div class="col-sm-10">
-      <input type="password" class="form-control" id="inputPassword3">
-    </div>
-  </div>
-  <button type="submit" class="btn btn-primary">Sign in</button>
-</form>
-
- --}}
- 
-
-
-<div class="row justify-space-between-md">
-  <div class="login-card">
+{{!-- login --}}
+<div id="login"class="row justify-space-between-md text-center col-12">
+  <div class="login-card col-12 py-3">
     <h2 class="page-title">Login</h2>
     <form class="form login-form">
       <div class="form-group">
-        <label for="email-login">Email:</label>
-        <input class="form-input" type="text" id="email-login" />
+        <input class="form-input my-1" type="text" id="email-login" placeholder="email"/>
       </div>
       <div class="form-group">
-        <label for="password-login">Password:</label>
-        <input class="form-input" type="password" id="password-login" />
+        <input class="form-input my-1" type="password" id="password-login" placeholder="password"/>
       </div>
       <div class="form-group">
         <button class="btn btn-primary" type="submit">login</button>
+        <br>
+        Don't have an account? <a id="#link-signup" href="#signup">Sign Up</a> Instead
       </div>
     </form>
   </div>
 
-
-
-  <div class="login-card">
+  <div id="signup"class="login-card col-12">
     <h2 class="page-title">Signup</h2>
     <form class="form signup-form">
       <div class="form-group">
-        <label for="username-signup">Username:</label>
-        <input class="form-input" type="text" id="username-signup" />
+        <input class="form-input my-1" type="text" id="username-signup" placeholder="username"/>
       </div>
       <div class="form-group">
-        <label for="email-signup">Email:</label>
-        <input class="form-input" type="text" id="email-signup" />
+        <input class="form-input my-1" type="text" id="email-signup" placeholder="email"/>
       </div>
       <div class="form-group">
-        <label for="password-signup">Password:</label>
-        <input class="form-input" type="password" id="password-signup" />
+        <input class="form-input my-1" type="password" id="password-signup" placeholder="password"/>
       </div>
       <div class="form-group">
         <button class="btn btn-primary" type="submit">signup</button>

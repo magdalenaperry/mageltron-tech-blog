@@ -73,10 +73,10 @@ router.get('/posts/:id', withAuth, async (req, res) => {
       );
     };
 // when you click on on post link, these are console.logged
-    console.log(req.session);
-    console.log(req.session.username);
-    console.log(req.session.userId);
-    console.log(posts)
+    // console.log(req.session);
+    // console.log(req.session.username);
+    // console.log(req.session.userId);
+    // console.log(posts)
   } catch (err) {
     res.status(500).json(err);
   };
@@ -95,7 +95,7 @@ router.post('/newcomment', async (req, res) => {
   
   try {
     const commentData = await Comment.create({...req.body, user_id:req.session.userId});
-    console.log(req.body);
+    // console.log(req.body);
 
     req.session.save(() => {
       req.session.loggedIn = true;
@@ -142,8 +142,8 @@ router.post('/newpost', async (req, res) => {
   try {
     const postData = await Post.create({...req.body, user_id:req.session.userId} )
 
-    console.log(req.session.username);
-    console.log(req.session);
+    // console.log(req.session.username);
+    // console.log(req.session);
 
     if (!postData) {
       res.status(404).json({

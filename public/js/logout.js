@@ -5,7 +5,6 @@ const logout = async () => {
       'Content-Type': 'application/json'
     },
   });
-console.log(response);
   if (response.ok) {
     document.location.replace('/');
   } else {
@@ -13,4 +12,4 @@ console.log(response);
   }
 };
 
-document.querySelector('#logout').addEventListener('click', logout, console.log('hello'));
+document.querySelector('#logout').addEventListener('click', logout);

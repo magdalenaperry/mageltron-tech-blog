@@ -1,3 +1,18 @@
+const loginEl = document.querySelector('#login');
+// const signupLink = document.querySelector('#link-signup');
+const signUpEl = document.querySelector('#signup');
+// signUpEl.style.display = 'none';
+
+const showSignUp = function (){
+  loginEl.style.display = 'none';
+  signUpEl.style.display = 'block';
+}
+
+
+
+
+
+
 const loginFormHandler = async (event) => {
   try {
     event.preventDefault();
@@ -14,7 +29,7 @@ const loginFormHandler = async (event) => {
           'Content-Type': 'application/json'
         },
       });
-      console.log(response);
+      // console.log(response);
       if (response.ok) {
         document.location.replace('/');
       } else {
@@ -48,13 +63,11 @@ const signupFormHandler = async (event) => {
           'Content-Type': 'application/json'
         },
       });
-      console.log(response)
 
       if (response.ok) {
         document.location.replace('/');
       } else if (password.length < 8) {
-        console.log('password length is less than 8')
-        // password is too short or same email is used
+        alert('password length is less than 8 characters')
       } else {
         alert('Failed to sign up.');
       }
@@ -64,12 +77,14 @@ const signupFormHandler = async (event) => {
   }
 };
 
-
+// document
+// .getElementById('link-signup')
+// .addEventListener('click', showSignUp);
 
 document
   .querySelector('.login-form')
-  .addEventListener('submit', loginFormHandler, console.log('heyy'));
+  .addEventListener('submit', loginFormHandler);
 
 document
   .querySelector('.signup-form')
-  .addEventListener('submit', signupFormHandler, console.log('sup'));
+  .addEventListener('submit', signupFormHandler);

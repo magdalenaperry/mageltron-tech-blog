@@ -1,8 +1,7 @@
 <div class="menu-container">
   {{!-- form to submit post --}}
-
+  {{!-- button to unhide posting inputs --}}
   <button type="submit" class="btn btn-primary my-5 create-post">Create Post</button>
-
 
   <div id="create-post" class="card border-dark mb-3">
     <h4 class="card-header">Create a New Post</h4>
@@ -38,7 +37,7 @@
       <div class="card-body">
         <h4 class="card-title">{{title}}</h4>
         <p class="card-text">{{post_body}}
-        <p class="card-text">{{format_time createdAt}}</p>
+        <p class="card-text">{{dateCreated}}</p>
 
 
         </p>

@@ -19,14 +19,14 @@
         Comments
       </h2>
     </div>
-  {{#each comments}}
+    {{#each comments}}
     <div class="card bg-secondary mb-3">
       <div class="card-body">
         <h4 class="card-title"></h4>
 
         <p class="card-text">{{comment_body}}</p>
         <div class="card-text text-info">{{user.username}}</div>
-        <p>{{createdAt}}</p>
+        <p>{{dateCreated}}</p>
 
         <a id="update-comment" type="submit" class="btn btn-link text-lowercase text-decoration-none">Update</a>
 
@@ -37,11 +37,6 @@
     {{/each}}
 
   </div>
-
-
-
-
-
 
   <div class="card border-dark mb-3">
     <h4 class="card-header">Comment</h4>
