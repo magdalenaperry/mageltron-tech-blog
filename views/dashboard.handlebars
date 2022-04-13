@@ -1,4 +1,3 @@
-
 <div class="card-header col-md-12">
   <h2>
     View all your Posts
@@ -6,22 +5,55 @@
 </div>
 
 {{#each posts}}
-<a href="/posts/{{id}}">
-  <div class="card text-white bg-primary mb-3">
+<div class="card text-white bg-primary mb-3">
+  <a href="/posts/{{id}}">
     {{!-- <div class="card-header">{{user.username}}</div> --}}
-    <div class="card-body">
-{{user.username}}
-      <h4 class="card-title">{{title}}</h4>
-      <p class="card-text">{{post_body}}
-      <p class="card-text">{{createdAt}}</p>
+    <div class="card-body text-white">
+      <p class="card-text text-info">{{user.username}}</p>
+      <h4 class="card-title text-white">{{title}}</h4>
+      <p class="card-text text-white">{{post_body}}</p>
+      <p class="card-text text-white">{{createdAt}}</p>
+    </div>
+  </a>
+  <span class="bg-secondary">
+  <a id="update-post" href="/editpost" type="click"
+    class="btn btn-link text-lowercase">Update</a>
+  </span> 
+  <span class="bg-secondary">
+  <a id="delete-post" href="/dashboard/deletepost/{{id}}" class="btn btn-link text-lowercase">Delete</a>
+  </span>
+</div>
 
 
+{{/each}}
 
-      </p>
+
+<button type="submit" class="btn btn-primary my-5 create-post">Create Post</button>
+
+
+<div id="create-post" class="card border-dark mb-3">
+  <h4 class="card-header">Create a New Post</h4>
+  <div class="card-body">
+    <div>
+
+      <form class="add-post">
+        <div class="mb-3">
+          <label for="title" class="form-label">Title</label>
+          <input type="text" class="form-control" id="post_title" placeholder="...">
+        </div>
+        <div class="mb-3">
+          <label for="post_body" class="form-label">Post</label>
+          <textarea class="form-control" id="post_body" placeholder="..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+
     </div>
   </div>
-</a>
-{{/each}}
+</div>
+
+
+
 
 {{!-- links to script that posts that links to newpost segment in controllers/post-route --}}
 {{#if loggedIn}}

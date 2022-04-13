@@ -41,7 +41,7 @@ router.get('/posts', withAuth, async (req, res) => {
 
   // console.log(posts)
   res.render('post', {
-    // loggedIn: req.session.loggedIn,
+    loggedIn: req.session.loggedIn,
     posts
   });
 });
@@ -87,8 +87,14 @@ router.get('/posts/:id', withAuth, async (req, res) => {
 // Create new Comment
 // functions in insomnia correctly
 router.post('/newcomment', async (req, res) => {
+  // if(!req.session.loggedIn){
+  //   res.status(403).json({
+  //     message: 'Login to create comment'
+  //   });
+  // };
+  
   try {
-    const commentData = await Comment.create(req.body);
+    const commentData = await Comment.create({...req.body, user_id:req.session.userId});
     console.log(req.body);
 
     req.session.save(() => {

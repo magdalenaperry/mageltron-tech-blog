@@ -3,17 +3,17 @@ const {
 } = require('../models');
 
 const postData = [{
-    title: 'Great Post',
-    post_body: 'This is a very short and informative post about coding',
-    user_id: 1
+    title: 'String vs. Boolean',
+    post_body: 'Does anyone know the difference between a string and a boolean?',
+    user_id: 3
   },
   {
-    title: 'Bad Post',
-    post_body: 'This is a very short and sort of informative post about coding',
+    title: 'Programming Languge Timeframe',
+    post_body: 'How long does it take to learn a new programming language? ',
     user_id: 3
   }, {
-    title: 'Ok Post',
-    post_body: 'This is a very short and sweet  post about coding',
+    title: 'Array methods',
+    post_body: 'What method can I use to add an item to an array?',
     user_id: 2
   }
 ];

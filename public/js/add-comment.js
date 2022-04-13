@@ -3,7 +3,7 @@ async function newFormHandler(event) {
   const comment_body = document.querySelector('#comment_body').value.trim();
   // need user_id, and post_id to successfully post!
   const post_id = window.location.toString().split('/')[4];
-  const user_id = 3
+  // const user_id = 3
   console.log(post_id);
 
   const response = await fetch(`/newcomment`, {
@@ -11,7 +11,7 @@ async function newFormHandler(event) {
     body: JSON.stringify({
       comment_body,
       post_id,
-      user_id
+      // user_id
 
     }),
     headers: {
