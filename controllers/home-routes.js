@@ -19,7 +19,6 @@ router.get('/', async (req, res) => {
     res.json(err);
   });
   const posts = serialize(postData);
-  //  console.log(posts)
   res.render('homepage', {
     loggedIn: req.session.loggedIn,
     posts
@@ -27,9 +26,7 @@ router.get('/', async (req, res) => {
 });
 
 
-// Dashboard click, gives you all posts
-// gives you create a new post function
-// http://localhost:3001/posts
+// posts click, gives you all posts
 router.get('/posts', withAuth, async (req, res) => {
   const postData = await Post.findAll({
     include: [User]
@@ -39,7 +36,6 @@ router.get('/posts', withAuth, async (req, res) => {
 
   const posts = serialize(postData);
 
-  // console.log(posts)
   res.render('post', {
     loggedIn: req.session.loggedIn,
     posts
@@ -72,11 +68,6 @@ router.get('/posts/:id', withAuth, async (req, res) => {
         posts
       );
     };
-// when you click on on post link, these are console.logged
-    // console.log(req.session);
-    // console.log(req.session.username);
-    // console.log(req.session.userId);
-    // console.log(posts)
   } catch (err) {
     res.status(500).json(err);
   };
@@ -85,14 +76,7 @@ router.get('/posts/:id', withAuth, async (req, res) => {
 
 
 // Create new Comment
-// functions in insomnia correctly
 router.post('/newcomment', async (req, res) => {
-  // if(!req.session.loggedIn){
-  //   res.status(403).json({
-  //     message: 'Login to create comment'
-  //   });
-  // };
-  
   try {
     const commentData = await Comment.create({...req.body, user_id:req.session.userId});
     // console.log(req.body);
@@ -141,10 +125,6 @@ router.post('/newpost', async (req, res) => {
   }
   try {
     const postData = await Post.create({...req.body, user_id:req.session.userId} )
-
-    // console.log(req.session.username);
-    // console.log(req.session);
-
     if (!postData) {
       res.status(404).json({
         message: 'Post was not created.'

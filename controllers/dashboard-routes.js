@@ -17,11 +17,7 @@ router.get("/", withAuth, async (req, res) => {
       include: [User, Comment]
     });
     const posts = serialize(postData);
-    // const posts = postData.map((post) => post.get({
-      // plain: true
-    // }));
 
-    // console.log(posts);
     res.render('dashboard', {
       loggedIn: req.session.loggedIn,
       posts
